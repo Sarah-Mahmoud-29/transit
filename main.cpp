@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
  int main(){
 
   Account user;
@@ -23,8 +22,9 @@ using namespace std;
   fleet.push_back(new Scooter(301,"Xiaomi Scooter", 2.0));
 
   cout<<"1-Register"<<endl<<"2-login"<<endl;
-  cout<<"Choice : "<<endl;
+  cout<<"Choice : ";
   int choice;cin>>choice;
+  cout<<endl;
 
   bool log=false;
 
@@ -48,14 +48,15 @@ using namespace std;
     cout << "\n==== MENU ====\n";
     cout<<"1-Book Vehicle\n2-My Wallet\n3-Trip History\n4-logout \n";
     int num;
-    cout<<"Choice : \n";cin>>num;
+    cout<<"Choice :";cin>>num;
+    cout<<endl;
 
 
     if(num==1){
 
-    cout<<"Type:\n1-Car\n2-Bus\n3-Scooter\nChoice:\n";
+    cout<<"Type:\n1-Car\n2-Bus\n3-Scooter\nChoice:";
     int n;cin>>n;
-
+    cout<<endl;
 
     vector<Vehicle*>sellected;
     for(Vehicle *v :fleet){
@@ -68,7 +69,7 @@ using namespace std;
     }
 
     if(sellected.empty())
-        cout<<"no available vehicle\n";
+        cout<<"No available vehicle\n";
     else{
 
         for(Vehicle *v:sellected){
@@ -95,7 +96,7 @@ using namespace std;
         }
 
         if(chosenVehicle==nullptr)
-            cout<<"no matching id"<<endl;
+            cout<<"No matching id"<<endl;
         else if(!chosenVehicle->getIsAvalible())
             cout<<"Sorry, this vehicle is already booked!\n";
         else{
@@ -124,12 +125,13 @@ using namespace std;
 
     }
     else if(num==2){
-        cout << "1- Add Money\n 2- Check Balance\n Choice: ";
+        cout << "1- Add Money\n2- Check Balance\n Choice: ";
         int n;cin>>n;
+        cout<<endl;
 
         if(n==1){
         double money;
-        cout<<"enter amount"<<endl;
+        cout<<"Enter amount"<<endl;
         cin>>money;
         myWallet.deposit(money);
 
@@ -139,7 +141,7 @@ using namespace std;
             cout << "Balance: $" <<myWallet.getBalance()<<endl;
         }
         else{
-           cout<<"invalid number"<<endl;
+           cout<<"Invalid number"<<endl;
         }
     }
     else if(num==3){
@@ -153,7 +155,7 @@ using namespace std;
 
     }
     else{
-        cout<<"logout.....\n";
+        cout<<"Logout.....\n";
         break;
     }
 

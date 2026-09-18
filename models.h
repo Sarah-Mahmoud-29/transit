@@ -1,4 +1,4 @@
-#ifndef MODELS_H
+
 #define MODELS_H
 
 #include <iostream>
@@ -102,8 +102,13 @@ public:
     }
 
     void deposit(double M){
+        if(M>=0){
         money+=M;
-        cout<<"add money complete"<<endl;
+        cout<<"Add money complete"<<endl;
+        }
+        else{
+            cout<<"Error, negative number"<<endl;
+        }
     }
 
     double getBalance(){
@@ -135,10 +140,12 @@ public:
     void displayTripHistory(){
     for(int i=0;i<allTrip.size();i++){
 
-        cout<<"type : "<<allTrip[i].vehicleName<<"\n";
-        cout<<"distance : "<<allTrip[i].distance<<"\n";
-        cout<<"paid: "<<allTrip[i].price<<"\n";
         cout<<"---------------------------------------------------------------------"<<endl;
+        cout<<"Type : "<<allTrip[i].vehicleName<<"\n";
+        cout<<"Distance : "<<allTrip[i].distance<<"\n";
+        cout<<"Paid: "<<allTrip[i].price<<"\n";
+        cout<<"---------------------------------------------------------------------"<<endl;
+
      }
     }
 
@@ -148,7 +155,7 @@ public:
 
     void addTrip(tripRecord trip){
         allTrip.push_back(trip);
-        cout<<"complete booking"<<endl;
+
     }
 };
 
@@ -163,21 +170,21 @@ public:
   void signUp(){
      pair<string,string> user ;
 
-     cout<<"enter name"<<endl;
+     cout<<"Enter name"<<endl;
      cin>> user.first;
-     cout<<"enter password"<<endl;
+     cout<<"Enter password"<<endl;
      cin>>user.second;
 
      userInfo.push_back(user);
-     cout<<"complete register"<<endl;
+     cout<<"Complete register"<<endl;
     }
 
     bool login(){
      string name,password;
 
-     cout<<"enter name"<<endl;
+     cout<<"Enter name"<<endl;
      cin>>name;
-     cout<<"enter password"<<endl;
+     cout<<"Enter password"<<endl;
      cin>>password;
 
     for(int i=0;i<userInfo.size();i++){
